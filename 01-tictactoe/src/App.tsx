@@ -1,5 +1,6 @@
 import './App.css';
+import Title from './components/Title';
 
-const App = () => <h1>Tic Tac Toe</h1>;
+const App = () => <Title />;
 
 export default App;
