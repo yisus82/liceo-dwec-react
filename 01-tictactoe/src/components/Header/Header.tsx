@@ -2,10 +2,14 @@ import Message from '../Message';
 import Title from '../Title';
 import './Header.css';
 
-const Header = () => (
+type HeaderProps = {
+  turn: string;
+};
+
+const Header = ({ turn }: HeaderProps) => (
   <header>
     <Title />
-    <Message />
+    <Message turn={turn} />
   </header>
 );
 

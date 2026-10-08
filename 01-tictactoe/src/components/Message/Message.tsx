@@ -1,5 +1,9 @@
 import './Message.css';
 
-const Message = () => <p id='message'>Turn: Player 1 (X)</p>;
+type MessageProps = {
+  turn: string;
+};
+
+const Message = ({ turn }: MessageProps) => <p id='message'>Turn: {turn}</p>;
 
 export default Message;
