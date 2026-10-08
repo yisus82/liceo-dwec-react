@@ -1,12 +1,6 @@
 import './App.css';
-import Message from './components/Message';
-import Title from './components/Title';
+import Header from './components/Header';
 
-const App = () => (
-  <>
-    <Title />
-    <Message />
-  </>
-);
+const App = () => <Header />;
 
 export default App;
