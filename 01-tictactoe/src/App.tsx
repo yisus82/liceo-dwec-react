@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import { Turn, type TurnType } from './types';
+import { Turn } from './types';
 
 const App = () => {
-  const [turn, setTurn] = useState<TurnType>(Turn.PLAYER_1);
+  const [turn, setTurn] = useState<Turn>(Turn.PLAYER_1);
 
   const generateRandomTurn = () => {
     const randomTurn = Math.random() < 0.5 ? Turn.PLAYER_1 : Turn.PLAYER_2;

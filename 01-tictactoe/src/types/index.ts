@@ -3,4 +3,4 @@ export const Turn = {
   PLAYER_2: 'Player 2 (O)',
 } as const;
 
-export type TurnType = (typeof Turn)[keyof typeof Turn];
+export type Turn = (typeof Turn)[keyof typeof Turn];
