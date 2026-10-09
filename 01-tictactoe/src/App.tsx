@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Board from './components/Board';
 import Header from './components/Header';
+import NewGameButton from './components/NewGameButton';
 import { CellValue, Turn, Winner, type BoardType } from './types';
 
 const App = () => {
@@ -63,10 +64,21 @@ const App = () => {
     checkWinner();
   }, [board]);
 
+  const resetGame = () => {
+    setBoard([
+      [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
+      [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
+      [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
+    ]);
+    setWinner(Winner.NONE);
+    generateRandomTurn();
+  };
+
   return (
     <>
       <Header turn={turn} winner={winner} />
       <Board board={board} onCellClick={handleCellClick} />
+      <NewGameButton onClick={resetGame} />
     </>
   );
 };
