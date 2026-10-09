@@ -7,9 +7,9 @@ import { CellValue, Turn, type BoardType } from './types';
 const App = () => {
   const [turn, setTurn] = useState<Turn>(Turn.PLAYER_1);
   const [board, setBoard] = useState<BoardType>([
-    [CellValue.EMPTY, CellValue.EMPTY, CellValue.PLAYER_1],
-    [CellValue.PLAYER_1, CellValue.PLAYER_2, CellValue.PLAYER_2],
-    [CellValue.EMPTY, CellValue.PLAYER_1, CellValue.EMPTY],
+    [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
+    [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
+    [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
   ]);
 
   const generateRandomTurn = () => {
@@ -19,10 +19,16 @@ const App = () => {
 
   useEffect(() => generateRandomTurn(), []);
 
+  const handleCellClick = (row: number, col: number) => {
+    const newBoard = [...board];
+    newBoard[row][col] = turn === Turn.PLAYER_1 ? CellValue.PLAYER_1 : CellValue.PLAYER_2;
+    setBoard(newBoard);
+  };
+
   return (
     <>
       <Header turn={turn} />
-      <Board board={board} onCellClick={() => {}} />
+      <Board board={board} onCellClick={handleCellClick} />
     </>
   );
 };
