@@ -20,6 +20,9 @@ const App = () => {
   useEffect(() => generateRandomTurn(), []);
 
   const handleCellClick = (row: number, col: number) => {
+    if (board[row][col] !== CellValue.EMPTY) {
+      return;
+    }
     const newBoard = [...board];
     newBoard[row][col] = turn === Turn.PLAYER_1 ? CellValue.PLAYER_1 : CellValue.PLAYER_2;
     setBoard(newBoard);
