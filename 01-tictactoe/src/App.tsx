@@ -23,7 +23,10 @@ const App = () => {
     const newBoard = [...board];
     newBoard[row][col] = turn === Turn.PLAYER_1 ? CellValue.PLAYER_1 : CellValue.PLAYER_2;
     setBoard(newBoard);
+    changeTurn();
   };
+
+  const changeTurn = () => setTurn(turn === Turn.PLAYER_1 ? Turn.PLAYER_2 : Turn.PLAYER_1);
 
   return (
     <>
