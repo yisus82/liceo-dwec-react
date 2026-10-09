@@ -12,3 +12,5 @@ export const CellValue = {
 } as const;
 
 export type CellValue = (typeof CellValue)[keyof typeof CellValue];
+
+export type BoardType = CellValue[][];

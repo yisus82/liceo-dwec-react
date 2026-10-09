@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Cell from './components/Cell';
+import Board from './components/Board';
 import Header from './components/Header';
-import { CellValue, Turn } from './types';
+import { CellValue, Turn, type BoardType } from './types';
 
 const App = () => {
   const [turn, setTurn] = useState<Turn>(Turn.PLAYER_1);
-  const [board, setBoard] = useState([
+  const [board, setBoard] = useState<BoardType>([
     [CellValue.EMPTY, CellValue.EMPTY, CellValue.PLAYER_1],
     [CellValue.PLAYER_1, CellValue.PLAYER_2, CellValue.PLAYER_2],
     [CellValue.EMPTY, CellValue.PLAYER_1, CellValue.EMPTY],
@@ -22,13 +22,7 @@ const App = () => {
   return (
     <>
       <Header turn={turn} />
-      {board.map((row, rowIndex) => (
-        <div key={rowIndex} className='row'>
-          {row.map((cell, colIndex) => (
-            <Cell value={cell} onClick={() => {}} />
-          ))}
-        </div>
-      ))}
+      <Board board={board} onCellClick={() => {}} />
     </>
   );
 };
