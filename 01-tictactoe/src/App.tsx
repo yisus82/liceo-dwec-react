@@ -21,7 +21,7 @@ const App = () => {
   useEffect(() => generateRandomTurn(), []);
 
   const handleCellClick = (row: number, col: number) => {
-    if (board[row][col] !== CellValue.EMPTY) {
+    if (board[row][col] !== CellValue.EMPTY || winner !== Winner.NONE) {
       return;
     }
     const newBoard = [...board];
