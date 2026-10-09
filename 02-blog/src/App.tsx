@@ -1,5 +1,6 @@
 import './App.css';
+import Title from './components/Title';
 
-const App: React.FC = () => <h1>Blog</h1>;
+const App: React.FC = () => <Title />;
 
 export default App;
