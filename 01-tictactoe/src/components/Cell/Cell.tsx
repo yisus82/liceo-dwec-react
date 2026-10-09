@@ -1,4 +1,7 @@
-import type { CellValue } from '../../types';
+import EmptyImage from '../../assets/images/empty.png';
+import Player1Image from '../../assets/images/player1.png';
+import Player2Image from '../../assets/images/player2.png';
+import { CellValue } from '../../types';
 import './Cell.css';
 
 type CellProps = {
@@ -6,10 +9,23 @@ type CellProps = {
   onClick: () => void;
 };
 
-const Cell = ({ value, onClick }: CellProps) => (
-  <button className='cell' onClick={onClick}>
-    {value}
-  </button>
-);
+const Cell = ({ value, onClick }: CellProps) => {
+  const getImage = () => {
+    switch (value) {
+      case CellValue.PLAYER_1:
+        return Player1Image;
+      case CellValue.PLAYER_2:
+        return Player2Image;
+      default:
+        return EmptyImage;
+    }
+  };
+
+  return (
+    <button className='cell' onClick={onClick}>
+      <img src={getImage()} alt={value} />
+    </button>
+  );
+};
 
 export default Cell;
