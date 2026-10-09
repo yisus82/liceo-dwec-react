@@ -5,7 +5,7 @@ import Header from './components/Header';
 import NewGameButton from './components/NewGameButton';
 import { CellValue, Turn, Winner, type BoardType } from './types';
 
-const App = () => {
+const App: React.FC = () => {
   const [turn, setTurn] = useState<Turn>(Turn.PLAYER_1);
   const [board, setBoard] = useState<BoardType>([
     [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],

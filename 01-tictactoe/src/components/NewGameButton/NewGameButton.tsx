@@ -4,7 +4,7 @@ type NewGameButtonProps = {
   onClick: () => void;
 };
 
-const NewGameButton = ({ onClick }: NewGameButtonProps) => (
+const NewGameButton: React.FC<NewGameButtonProps> = ({ onClick }: NewGameButtonProps) => (
   <button id='new-game-button' onClick={onClick}>
     New Game
   </button>

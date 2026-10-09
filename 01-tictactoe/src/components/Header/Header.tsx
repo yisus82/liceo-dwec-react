@@ -8,7 +8,7 @@ type HeaderProps = {
   winner: Winner;
 };
 
-const Header = ({ turn, winner }: HeaderProps) => (
+const Header: React.FC<HeaderProps> = ({ turn, winner }: HeaderProps) => (
   <header>
     <Title />
     <Message turn={turn} winner={winner} />

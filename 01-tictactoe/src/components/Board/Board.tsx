@@ -7,7 +7,7 @@ type BoardProps = {
   onCellClick: (rowIndex: number, colIndex: number) => void;
 };
 
-const Board = ({ board, onCellClick }: BoardProps) => (
+const Board: React.FC<BoardProps> = ({ board, onCellClick }: BoardProps) => (
   <div id='board'>
     {board.map((row, rowIndex) => (
       <div key={rowIndex} className='row'>

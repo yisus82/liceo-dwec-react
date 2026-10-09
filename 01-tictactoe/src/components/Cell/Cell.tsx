@@ -9,7 +9,7 @@ type CellProps = {
   onClick: () => void;
 };
 
-const Cell = ({ value, onClick }: CellProps) => {
+const Cell: React.FC<CellProps> = ({ value, onClick }: CellProps) => {
   const getImage = () => {
     switch (value) {
       case CellValue.PLAYER_1:

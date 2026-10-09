@@ -1,5 +1,5 @@
 import './Title.css';
 
-const Title = () => <h1>Tic Tac Toe</h1>;
+const Title: React.FC = () => <h1>Tic Tac Toe</h1>;
 
 export default Title;

@@ -6,7 +6,7 @@ type MessageProps = {
   winner: Winner;
 };
 
-const Message = ({ turn, winner }: MessageProps) => {
+const Message: React.FC<MessageProps> = ({ turn, winner }: MessageProps) => {
   const message = winner !== Winner.NONE ? `Winner: ${winner}` : `Turn: ${turn}`;
   return <p id='message'>{message}</p>;
 };
