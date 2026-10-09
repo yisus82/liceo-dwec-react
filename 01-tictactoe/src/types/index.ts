@@ -4,3 +4,11 @@ export const Turn = {
 } as const;
 
 export type Turn = (typeof Turn)[keyof typeof Turn];
+
+export const CellValue = {
+  PLAYER_1: 'X',
+  PLAYER_2: 'O',
+  EMPTY: '',
+} as const;
+
+export type CellValue = (typeof CellValue)[keyof typeof CellValue];
