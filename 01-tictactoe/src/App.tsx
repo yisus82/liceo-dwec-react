@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Board from './components/Board';
 import Header from './components/Header';
-import { CellValue, Turn, type BoardType } from './types';
+import { CellValue, Turn, Winner, type BoardType } from './types';
 
 const App = () => {
   const [turn, setTurn] = useState<Turn>(Turn.PLAYER_1);
@@ -11,6 +11,7 @@ const App = () => {
     [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
     [CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY],
   ]);
+  const [winner, setWinner] = useState<Winner>(Winner.NONE);
 
   const generateRandomTurn = () => {
     const randomTurn = Math.random() < 0.5 ? Turn.PLAYER_1 : Turn.PLAYER_2;
@@ -31,9 +32,40 @@ const App = () => {
 
   const changeTurn = () => setTurn(turn === Turn.PLAYER_1 ? Turn.PLAYER_2 : Turn.PLAYER_1);
 
+  const checkValues = (a: CellValue, b: CellValue, c: CellValue) => {
+    if (a !== CellValue.EMPTY && a === b && b === c) {
+      return a === CellValue.PLAYER_1 ? Winner.PLAYER_1 : Winner.PLAYER_2;
+    }
+    return Winner.NONE;
+  };
+
+  const checkWinner = () => {
+    const winnerRows = board.map(row => checkValues(row[0], row[1], row[2]));
+    const winnerCols = [0, 1, 2].map(col =>
+      checkValues(board[0][col], board[1][col], board[2][col]),
+    );
+    const winnerDiags = [
+      checkValues(board[0][0], board[1][1], board[2][2]),
+      checkValues(board[0][2], board[1][1], board[2][0]),
+    ];
+
+    const allWinners = [...winnerRows, ...winnerCols, ...winnerDiags];
+    const finalWinner = allWinners.find(winner => winner !== Winner.NONE);
+
+    if (finalWinner) {
+      setWinner(finalWinner);
+    } else if (board.flat().every(cell => cell !== CellValue.EMPTY)) {
+      setWinner(Winner.DRAW);
+    }
+  };
+
+  useEffect(() => {
+    checkWinner();
+  }, [board]);
+
   return (
     <>
-      <Header turn={turn} />
+      <Header turn={turn} winner={winner} />
       <Board board={board} onCellClick={handleCellClick} />
     </>
   );

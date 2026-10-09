@@ -1,9 +1,14 @@
+import { type Turn, Winner } from '../../types';
 import './Message.css';
 
 type MessageProps = {
-  turn: string;
+  turn: Turn;
+  winner: Winner;
 };
 
-const Message = ({ turn }: MessageProps) => <p id='message'>Turn: {turn}</p>;
+const Message = ({ turn, winner }: MessageProps) => {
+  const message = winner !== Winner.NONE ? `Winner: ${winner}` : `Turn: ${turn}`;
+  return <p id='message'>{message}</p>;
+};
 
 export default Message;
