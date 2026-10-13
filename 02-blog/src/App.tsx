@@ -1,12 +1,6 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Title from './components/Title';
+import Header from './components/Header';
 
-const App: React.FC = () => (
-  <header>
-    <Title />
-    <Navbar />
-  </header>
-);
+const App: React.FC = () => <Header />;
 
 export default App;
