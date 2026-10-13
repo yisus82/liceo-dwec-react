@@ -16,6 +16,7 @@ const App: React.FC = () => {
     <>
       <Header />
       <main>
+        <h2>Featured Posts</h2>
         <List items={items} />
       </main>
       <Footer />
