@@ -1,6 +1,12 @@
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header';
 
-const App: React.FC = () => <Header />;
+const App: React.FC = () => (
+  <>
+    <Header />
+    <Footer />
+  </>
+);
 
 export default App;
