@@ -13,8 +13,8 @@ main {
   align-items: center;
   gap: 20px;
   padding: 20px;
-}
 
-main>h2 {
-  font-size: 2rem;
+  h2 {
+    font-size: 2rem;
+  }
 }
