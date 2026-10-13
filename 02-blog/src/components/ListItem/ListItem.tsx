@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './ListItem.css';
 
 export type ListItemProps = {
@@ -7,7 +8,7 @@ export type ListItemProps = {
 
 const ListItem: React.FC<ListItemProps> = ({ text, link }) => (
   <li className='list-item'>
-    <a href={link}>{text}</a>
+    <Link to={link}>{text}</Link>
   </li>
 );
 

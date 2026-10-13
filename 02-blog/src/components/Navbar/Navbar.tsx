@@ -1,21 +1,22 @@
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC = () => (
   <nav>
     <ul>
       <li>
-        <a href='/home' className='active'>
+        <NavLink to='/home' className='active'>
           Home
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a href='/users'>Users</a>
+        <NavLink to='/users'>Users</NavLink>
       </li>
       <li>
-        <a href='/posts'>Posts</a>
+        <NavLink to='/posts'>Posts</NavLink>
       </li>
       <li>
-        <a href='/register'>Register</a>
+        <NavLink to='/register'>Register</NavLink>
       </li>
     </ul>
   </nav>
