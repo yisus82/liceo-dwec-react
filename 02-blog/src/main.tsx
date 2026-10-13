@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import NotFound from './pages/NotFound';
 import Home from './routes/Home.tsx';
 import Root from './routes/Root.tsx';
 import './styles/index.css';
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 
