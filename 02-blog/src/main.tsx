@@ -3,12 +3,12 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Error from './pages/Error';
 import NotFound from './pages/NotFound';
-import Home from './routes/Home.tsx';
+import Home, { homeLoader } from './routes/Home.tsx';
 import PostDetails from './routes/PostDetails.tsx';
 import Posts from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
-import UserDetails from './routes/userDetails.tsx';
+import UserDetails from './routes/UserDetails.tsx';
 import Users from './routes/Users.tsx';
 import './styles/index.css';
 
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+        loader: homeLoader,
       },
       {
         path: '/users',
