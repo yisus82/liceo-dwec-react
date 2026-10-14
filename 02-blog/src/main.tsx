@@ -4,7 +4,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Error from './pages/Error';
 import NotFound from './pages/NotFound';
 import Home, { homeLoader } from './routes/Home.tsx';
-import PostDetails from './routes/PostDetails.tsx';
+import PostDetails, { postLoader } from './routes/PostDetails.tsx';
 import Posts, { postsLoader } from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
@@ -52,6 +52,7 @@ const router = createBrowserRouter([
           {
             path: ':postId',
             element: <PostDetails />,
+            loader: postLoader,
           },
         ],
       },
