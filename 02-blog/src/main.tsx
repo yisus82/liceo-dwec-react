@@ -4,9 +4,11 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Error from './pages/Error';
 import NotFound from './pages/NotFound';
 import Home from './routes/Home.tsx';
+import PostDetails from './routes/PostDetails.tsx';
 import Posts from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
+import UserDetails from './routes/userDetails.tsx';
 import Users from './routes/Users.tsx';
 import './styles/index.css';
 
@@ -26,11 +28,29 @@ const router = createBrowserRouter([
       },
       {
         path: '/users',
-        element: <Users />,
+        children: [
+          {
+            index: true,
+            element: <Users />,
+          },
+          {
+            path: ':userId',
+            element: <UserDetails />,
+          },
+        ],
       },
       {
         path: '/posts',
-        element: <Posts />,
+        children: [
+          {
+            index: true,
+            element: <Posts />,
+          },
+          {
+            path: ':postId',
+            element: <PostDetails />,
+          },
+        ],
       },
       {
         path: '/register',
