@@ -8,7 +8,7 @@ import PostDetails, { postLoader } from './routes/PostDetails.tsx';
 import Posts, { postsLoader } from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
-import UserDetails from './routes/UserDetails.tsx';
+import UserDetails, { userLoader } from './routes/UserDetails.tsx';
 import Users, { usersLoader } from './routes/Users.tsx';
 import './styles/index.css';
 
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
           {
             path: ':userId',
             element: <UserDetails />,
+            loader: userLoader,
           },
         ],
       },
