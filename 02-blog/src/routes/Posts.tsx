@@ -2,9 +2,17 @@ import { useLoaderData, type LoaderFunction } from 'react-router-dom';
 import List from '../components/List';
 import type { PostResponse } from '../types';
 
-export const postsLoader: LoaderFunction = async () => {
+export const postsLoader: LoaderFunction = async ({ request }) => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
   const posts: PostResponse[] = await response.json();
+  const url = new URL(request.url);
+  const searchParams = new URLSearchParams(url.search);
+  const userId = searchParams.get('userId');
+
+  if (userId) {
+    return posts.filter(post => post.userId === parseInt(userId));
+  }
+
   return posts;
 };
 
