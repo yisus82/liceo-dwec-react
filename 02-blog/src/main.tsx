@@ -9,7 +9,7 @@ import Posts, { postsLoader } from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
 import UserDetails from './routes/UserDetails.tsx';
-import Users from './routes/Users.tsx';
+import Users, { usersLoader } from './routes/Users.tsx';
 import './styles/index.css';
 
 const router = createBrowserRouter([
@@ -33,6 +33,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Users />,
+            loader: usersLoader,
           },
           {
             path: ':userId',
