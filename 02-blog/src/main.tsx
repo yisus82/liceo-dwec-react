@@ -5,7 +5,7 @@ import Error from './pages/Error';
 import NotFound from './pages/NotFound';
 import Home, { homeLoader } from './routes/Home.tsx';
 import PostDetails from './routes/PostDetails.tsx';
-import Posts from './routes/Posts.tsx';
+import Posts, { postsLoader } from './routes/Posts.tsx';
 import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
 import UserDetails from './routes/UserDetails.tsx';
@@ -46,6 +46,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Posts />,
+            loader: postsLoader,
           },
           {
             path: ':postId',
