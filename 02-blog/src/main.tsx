@@ -4,7 +4,10 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Error from './pages/Error';
 import NotFound from './pages/NotFound';
 import Home from './routes/Home.tsx';
+import Posts from './routes/Posts.tsx';
+import Register from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
+import Users from './routes/Users.tsx';
 import './styles/index.css';
 
 const router = createBrowserRouter([
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/users',
+        element: <Users />,
+      },
+      {
+        path: '/posts',
+        element: <Posts />,
+      },
+      {
+        path: '/register',
+        element: <Register />,
       },
     ],
   },
