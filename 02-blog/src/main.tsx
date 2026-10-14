@@ -6,7 +6,7 @@ import NotFound from './pages/NotFound';
 import Home, { homeLoader } from './routes/Home.tsx';
 import PostDetails, { postLoader } from './routes/PostDetails.tsx';
 import Posts, { postsLoader } from './routes/Posts.tsx';
-import Register from './routes/Register.tsx';
+import Register, { registerAction } from './routes/Register.tsx';
 import Root from './routes/Root.tsx';
 import UserDetails, { userLoader } from './routes/UserDetails.tsx';
 import Users, { usersLoader } from './routes/Users.tsx';
@@ -60,6 +60,7 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+        action: registerAction,
       },
     ],
   },
